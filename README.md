@@ -70,7 +70,7 @@ This will emit an Remote Procedure Call action (which will travel
 to all threads). This will run a function if scope is correct.
 
 ```javascript
-@param string scope             - The destination thread's scope (electron, main-renderer etc)
+@param string scope             - The destination threads scope (electron, main-renderer etc)
 @param string functionPathInLib - The path to the function in the destination thread's lib
 @param any functionInputs       - The function inputs (must be serialisable, i.e. object, string, number etc)
 
