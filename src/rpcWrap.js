@@ -12,7 +12,7 @@ rpcWrap('track', ['pause', 'play'], 'main-renderer')
 const rpcWrap = (namespace, functions, scope) => {
     return functions.reduce((rpcLib, functionName) => {
         rpcLib[functionName] = function() {
-            return rpc(scope, `${namespace}.${functionName}`, arguments)
+            return rpc(scope, `${namespace}.${functionName}`, [...arguments])
         }
         return rpcLib
     }, {})
