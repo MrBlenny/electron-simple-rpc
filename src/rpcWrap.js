@@ -1,4 +1,4 @@
-import rpc from './rpc';
+const rpc = = require('./rpc');
 
 /****************************************************************
 RPC Wrap.
@@ -18,4 +18,4 @@ const rpcWrap = (namespace, functions, scope) => {
     }, {})
 }
 
-export default rpcWrap;
+module.exports = rpcWrap;

@@ -1,13 +1,9 @@
-import rpc from './rpc';
-import wrap from './rpcWrap';
-import RpcIpcManagerClass from './RpcIpcManager';
+const rpc = require('./rpc');
+const rpcWrap = require('./rpcWrap');
+const RpcIpcManager = require('./RpcIpcManager');
 
-export default {
+module.exports = {
     rpc,
     rpcWrap: wrap,
     RpcIpcManager: RpcIpcManagerClass
-}
-
-// explicit exports required for webpack
-export const rpcWrap = wrap;
-export const RpcIpcManager = RpcIpcManagerClass;
+};

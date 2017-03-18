@@ -1,7 +1,7 @@
-import Promise from 'bluebird';
-import uuid from 'uuid/v4';
-import { ipcSend } from 'electron-simple-ipc';
-import promises from './promises';
+const Promise = require('bluebird');
+const uuid = require('uuid/v4');
+const { ipcSend } = require('electron-simple-ipc');
+const promises = require('./promises');
 
 /****************************************************************
 RPC Emit.
@@ -32,4 +32,4 @@ const rpc = (scope, functionToRun, functionInputs) => {
     return deferred.promise;
 }
 
-export default rpc;
+module.exports = rpc;

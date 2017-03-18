@@ -1,6 +1,6 @@
-import promises from './promises';
-import { ipcReceive, ipcSend } from 'electron-simple-ipc';
-import { get } from 'lodash';
+const promises = require('./promises');
+const { ipcReceive, ipcSend } = require('electron-simple-ipc');
+const { get } = require('lodash');
 
 /*****************************************************************************
 RPC IPC Manager.
@@ -85,4 +85,4 @@ class RpcIpcManager {
     }
 };
 
-export default RpcIpcManager;
+module.exports = RpcIpcManager;

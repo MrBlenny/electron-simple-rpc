@@ -1,6 +1,6 @@
 {
   "name": "electron-simple-rpc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/MrBlenny/electron-simple-rpc#readme",
   "dependencies": {
-    "electron-simple-ipc": "^1.0.1"
+    "bluebird": "^3.5.0",
+    "electron-simple-ipc": "^1.0.1",
+    "lodash": "^4.17.4",
+    "uuid": "^3.0.1"
   }
 }
