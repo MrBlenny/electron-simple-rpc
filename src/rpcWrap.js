@@ -1,4 +1,4 @@
-const rpc = = require('./rpc');
+const rpc = require('./rpc');
 
 /****************************************************************
 RPC Wrap.
