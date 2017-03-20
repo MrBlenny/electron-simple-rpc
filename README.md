@@ -45,7 +45,7 @@ Renderer Thread:
   const rpcIpcManager = new RpcIpcManger(library, scope);
   
   // We send an RPC event from renderer -> electron
-  rpc('electron', 'ping', 'from renderer').then(console.log)
+  rpc('electron', 'ping')('from renderer').then(console.log)
   
 ```
 
