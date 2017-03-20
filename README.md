@@ -64,14 +64,14 @@ Note: This example shows renderer -> electron comms. The code is pretty much ide
 ## Functions
 
 ### RPC Emit
-rpc(scope, functionPathInLib)(functionInputs);
+`javascript rpc(scope, functionPathInLib)(functionInputs)`;
 
-This will emit an Remote Procedure Call action (which will travel
+This will emit a Remote Procedure Call action (which will travel
 to all threads). This will run a function if scope is correct.
 
 Note: This will return a function which you must run.
 
-```javascript
+```
 @param string scope             - The destination threads scope (electron, main-renderer etc)
 @param string functionPathInLib - The path to the function in the destination thread's lib
 @param any functionInputs       - The function inputs (must be serialisable, i.e. object, string, number etc)
@@ -79,11 +79,11 @@ Note: This will return a function which you must run.
 ```
 
 ### RPC Manager
-new RpcIpcManger(lib, scope);
+`javascripte RpcIpcManger(lib, scope)`;
 
 This is used to receive and respond to RPC actions received over IPC.
 
-```javascript
+```
 @param object lib   - The function library used with rpc
 @param string scope - This thread's scope (electron, main-renderer etc)
 ```
