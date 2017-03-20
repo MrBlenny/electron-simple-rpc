@@ -36,7 +36,7 @@ Renderer Thread:
 ```javascript  
   import { RpcIpcManger, rpc } from 'rpc';
   
-  / Specify the scope (this should be unique)
+  // Specify the scope (this should be unique)
   const scope = 'renderer1';
   
   // Create the function lib
