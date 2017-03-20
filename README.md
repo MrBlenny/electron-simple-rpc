@@ -15,7 +15,7 @@ The RPC system needs to be setup in every electron thread you which to communica
 
 Main Electron Thread:
 ```javascript  
-  import { RpcIpcManger, rpc } from 'rpc';
+  import { RpcIpcManger } from 'rpc';
   
   // Specify the scope (this should be unique)
   const scope = 'electron';
@@ -34,7 +34,7 @@ Main Electron Thread:
 
 Renderer Thread:
 ```javascript  
-  import { RpcIpcManger } from 'rpc';
+  import { RpcIpcManger, rpc } from 'rpc';
   
   / Specify the scope (this should be unique)
   const scope = 'renderer1';
@@ -68,8 +68,6 @@ Note: This example shows renderer -> electron comms. The code is pretty much ide
 
 This will emit a Remote Procedure Call action (which will travel
 to all threads). This will run a function if scope is correct.
-
-Note: This will return a function which you must run.
 
 ```
 @param string scope             - The destination threads scope (electron, main-renderer etc)
