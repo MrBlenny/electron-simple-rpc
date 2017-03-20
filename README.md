@@ -64,7 +64,7 @@ Note: This example shows renderer -> electron comms. The code is pretty much ide
 ## Functions
 
 ### RPC Emit
-`javascript rpc(scope, functionPathInLib)(functionInputs)`;
+`rpc(scope, functionPathInLib)(functionInputs)`;
 
 This will emit a Remote Procedure Call action (which will travel
 to all threads). This will run a function if scope is correct.
@@ -79,7 +79,7 @@ Note: This will return a function which you must run.
 ```
 
 ### RPC Manager
-`javascript RpcIpcManger(lib, scope)`;
+`RpcIpcManger(lib, scope)`;
 
 This is used to receive and respond to RPC actions received over IPC.
 
