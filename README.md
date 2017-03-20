@@ -1,4 +1,4 @@
-# RPC (Remote Procedure Call)
+# Electron Simple RPC (Remote Procedure Call)
 
 ## Why?
 It is a real PITA to call functions running in another electron thread/process. 
