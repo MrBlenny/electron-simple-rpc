@@ -79,7 +79,7 @@ Note: This will return a function which you must run.
 ```
 
 ### RPC Manager
-`javascripte RpcIpcManger(lib, scope)`;
+`javascript RpcIpcManger(lib, scope)`;
 
 This is used to receive and respond to RPC actions received over IPC.
 
