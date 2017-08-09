@@ -19,7 +19,9 @@ class RpcIpcManager {
             return get(lib, functionName);
         }
 
-        ipcReceive('RPC', (payload) => {
+        this.unsubscribeFunctions = [];
+
+        const unsubscribeFromRPC = ipcReceive('RPC', (payload) => {
             /****************************************************************
             RPC Receive.
 
@@ -48,7 +50,7 @@ class RpcIpcManager {
 
                 const functionFromAlias = getFunction(functionToRun);
                 // If we have a function, run it.
-                if (functionFromAlias){
+                if (functionFromAlias) {
                     // Run the function and get the result
                     const result = functionFromAlias.apply(null, functionInputs);
                     // We wrap the result in Promise.resolve so we can treat
@@ -56,11 +58,11 @@ class RpcIpcManager {
                     Promise.resolve(result).then(resolve).catch(reject);
                 }
                 else {
-                    reject({error: 'Function not found.'})
+                    reject({ error: 'Function not found.' })
                 }
             }
         });
-
+        this.unsubscribeFunctions.push(unsubscribeFromRPC);
 
 
         /****************************************************************
@@ -70,18 +72,24 @@ class RpcIpcManager {
         to see if there is a corresponding RPC promise in the promise
         cache. If we find one, we resolve the promise.
         ****************************************************************/
-        ipcReceive('RPC_RESOLVED', (payload) => {
+        const unsubscribeFromRPCResolved = ipcReceive('RPC_RESOLVED', (payload) => {
             // Check the promise cache
             const promise = promises[payload.promiseId];
             if (promise) promise.resolve(payload.result);
         })
+        this.unsubscribeFunctions.push(unsubscribeFromRPCResolved)
 
-        ipcReceive('RPC_REJECTED', (payload) => {
+        const unsubscribeFromRPCRejected = ipcReceive('RPC_REJECTED', (payload) => {
             // Check the promise cache
             const promise = promises[payload.promiseId];
             if (promise) promise.reject(payload.result);
         })
+        this.unsubscribeFunctions.push(unsubscribeFromRPCRejected)
 
+    }
+
+    release() {
+        this.unsubscribeFunctions.forEach(unsubscribe => unsubscribe());
     }
 };
 
