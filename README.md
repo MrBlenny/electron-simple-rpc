@@ -85,3 +85,7 @@ This is used to receive and respond to RPC actions received over IPC.
 @param object lib   - The function library used with rpc
 @param string scope - This thread's scope (electron, main-renderer etc)
 ```
+
+`RpcIpcManger#release`
+
+Use this method to stop handling RPC calls.
